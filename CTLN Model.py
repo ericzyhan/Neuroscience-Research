@@ -46,6 +46,15 @@ def weight_matrix(r, c):
     mat_w_mod = np.array(w_mod)
     return(mat_w_mod)
 
+def check_fp(weight_mat, fixed_point, theta_sig):
+    for i in range(matrix_size):
+        s=[]
+        for j in range(matrix_size):
+            Wx = weight_mat[i,j]*fixed_point[j]
+            s.append(Wx)
+            Wx = 0
+        check = sum(s) + theta_sig[i]
+    print(check)
 
 #input weight matrix
 matrix_size = int(input('matrix size?\n'))
@@ -54,6 +63,8 @@ W = weight_matrix(matrix_size, matrix_size)
 ps = powerset(matrix_size)
 # print(f'The relevant values of sigma are {ps}')
 print(W)
+
+
 
 # finding fixed points
 
@@ -70,16 +81,7 @@ for sigma in ps: # index of entry in power set
             t_s[iter-1, :] = 0
             P = np.matmul(inverse, t_s)
         print(P)
-        for i in range(matrix_size):
-            s=[]
-            for j in range(matrix_size):
-                # print(W[i,j])
-                # print(P[j])
-                Wx = A[i,j]*P[j]
-                s.append(Wx)
-                Wx = 0
-            check = sum(s) + t_s[i]
-            print(check)
+        check_fp(A, P, t_s)
 
 
     else:
@@ -87,16 +89,7 @@ for sigma in ps: # index of entry in power set
         P = np.matmul(inverse, t_s)
         print(P)
         # what is even going on here
-        for i in range(matrix_size):
-            s=[]
-            for j in range(matrix_size):
-                # print(W[i,j])
-                # print(P[j])
-                Wx = A[i,j]*P[j]
-                s.append(Wx)
-                Wx = 0
-            check = sum(s) + t_s[i]
-            print(check)
+        check_fp(A, P, t_s)
 # print(W_s)
 
 
