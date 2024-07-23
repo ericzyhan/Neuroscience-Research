@@ -1,5 +1,8 @@
 import numpy as np
 import itertools as itt
+import pandas as pd
+import scipy as scp
+import matplotlib.pyplot as plt
 
 # parameters for eps, del, the
 e = 0.25
@@ -8,10 +11,8 @@ t = 1
 
 # creating powersets function
 def powerset(j):
-    xs = [] # parent set
     ps = [] # power set of parent set
-    for i in range(j):
-        xs.append(i+1)
+    xs = np.arange(1,j+1)
     for i in range(0, j+1):
         for subset in itt.combinations(xs, i):
             ps.append(subset)
@@ -46,15 +47,11 @@ def weight_matrix(r, c):
     mat_w_mod = np.array(w_mod)
     return(mat_w_mod)
 
-def check_fp(weight_mat, fixed_point, theta_sig):
+# checking fixed points
+def check_fp(weight_matrix, fixed_point, theta):
     for i in range(matrix_size):
-        s=[]
-        for j in range(matrix_size):
-            Wx = weight_mat[i,j]*fixed_point[j]
-            s.append(Wx)
-            Wx = 0
-        check = sum(s) + theta_sig[i]
-    print(check)
+        Wx = weight_matrix[i,:]@fixed_point + theta[i]
+        print(Wx)
 
 #input weight matrix
 matrix_size = int(input('matrix size?\n'))
@@ -71,7 +68,8 @@ print(W)
 A = np.copy(W)
 for sigma in ps: # index of entry in power set
     W = np.copy(A) # weight matrix
-    t_s = np.ones((matrix_size, 1)) # theta_sigma
+    theta = np.ones((matrix_size, 1)) # theta
+    t_s = np.copy(theta) # theta_sigma
     print(ps.index(sigma))
     deac_neur = ps[ps.index(sigma)] #deactivated neurons
     if sigma:
@@ -81,17 +79,40 @@ for sigma in ps: # index of entry in power set
             t_s[iter-1, :] = 0
             P = np.matmul(inverse, t_s)
         print(P)
-        check_fp(A, P, t_s)
-
+        check_fp(A, P, theta)
 
     else:
         inverse = np.linalg.inv(np.identity(matrix_size) - W)
         P = np.matmul(inverse, t_s)
         print(P)
         # what is even going on here
-        check_fp(A, P, t_s)
+        check_fp(A, P, theta)
 # print(W_s)
 
 
 # mat_inverse_fp = np.linalg.inv(np.identity(matrix_size) - mat_w_mod)
 # print(mat_inverse_fp)
+
+# simulate ODE
+# generate random matrix
+# A - np.diag(np.diag(A))
+
+# simulating ODE
+
+def sys(t, x):
+    # x1, x2 = x    
+    dxdt = (-x + np.maximum(0, A@x + 1))
+    return dxdt
+
+x0 = np.random.rand(matrix_size, 1)
+time = [0, 100]
+
+x = scp.integrate.solve_ivp(sys, time, x0.flatten(), dense_output=True)
+t = np.linspace(0,25, 101)
+
+plot1 = plt.plot(t, (x.sol(t)).T)
+plt.show()
+plt.xlim([0,6])
+plt.ylim([0,6])
+plot2 = plt.plot(x.sol(t)[0], x.sol(t)[1])
+plt.show()
