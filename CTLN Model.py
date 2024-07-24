@@ -48,10 +48,23 @@ def weight_matrix(r, c):
     return(mat_w_mod)
 
 # checking fixed points
-def check_fp(weight_matrix, fixed_point, theta):
+
+def check_fp(weight_matrix, fixed_point, theta, theta_sig):
+    checker = []
     for i in range(matrix_size):
         Wx = weight_matrix[i,:]@fixed_point + theta[i]
         print(Wx)
+        if theta_sig[i] > 0:
+            if Wx > 0:
+                checker.append(1)
+            else:
+                checker.append(0)
+        else:
+            if Wx > 0:
+                checker.append(0)
+            else:
+                checker.append(1)
+    return(checker)
 
 #input weight matrix
 matrix_size = int(input('matrix size?\n'))
@@ -61,7 +74,9 @@ ps = powerset(matrix_size)
 # print(f'The relevant values of sigma are {ps}')
 print(W)
 
+# dictionary for fp supports
 
+supports = {}
 
 # finding fixed points
 
@@ -79,19 +94,18 @@ for sigma in ps: # index of entry in power set
             t_s[iter-1, :] = 0
             P = np.matmul(inverse, t_s)
         print(P)
-        check_fp(A, P, theta)
+        checker = check_fp(A, P, theta, t_s)
 
     else:
         inverse = np.linalg.inv(np.identity(matrix_size) - W)
         P = np.matmul(inverse, t_s)
         print(P)
-        # what is even going on here
-        check_fp(A, P, theta)
+        checker = check_fp(A, P, theta, t_s)
+
+    if np.all(checker) == True:
+        supports[tuple(np.setdiff1d(np.arange(1, matrix_size+1), deac_neur))] = tuple(P)
+print(supports)
 # print(W_s)
-
-
-# mat_inverse_fp = np.linalg.inv(np.identity(matrix_size) - mat_w_mod)
-# print(mat_inverse_fp)
 
 # simulate ODE
 # generate random matrix
@@ -116,3 +130,5 @@ plt.xlim([0,6])
 plt.ylim([0,6])
 plot2 = plt.plot(x.sol(t)[0], x.sol(t)[1])
 plt.show()
+
+print(pd.DataFrame.from_dict(supports, orient='index'))
