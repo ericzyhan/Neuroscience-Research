@@ -3,6 +3,7 @@ import itertools as itt
 import pandas as pd
 import scipy as scp
 import matplotlib.pyplot as plt
+import random as rd
 
 # parameters for eps, del, the
 e = 0.25
@@ -19,33 +20,34 @@ def powerset(j):
     return(ps)
 
 # generating weight matrix function
-def weight_matrix(r, c):
-    w = []
-    print('enter entries row-wise')
-    for i in range(r):
-        indiv_row = []    
-        for j in range(c):
-            indiv_row.append(int(input()))
-        w.append(indiv_row)
-    mat_w = np.array(w)
+def weight_matrix(matrix_size):
+    mat = np.zeros((matrix_size, matrix_size))
 
-    w_mod = []
-    for row in mat_w:
-        w_mod_r = []
-        for ent in row:
-            if ent == 1:
-                w_mod_r.append(-1+e)
-                continue
-            if ent == -1:
-                w_mod_r.append(-1-d)
+    possible_vals = (-2,-1,1,2)
+    weights = (0.2,0.3, 0.3,0.2)
+
+    for i in range(matrix_size):
+        for j in range(matrix_size):
+            if i == j:
                 continue
             else:
-                w_mod_r.append(0)
-        # print(w_mod_r)
-        w_mod.append(w_mod_r)
-    # mat_w_mod = np.array(w_mod)
-    mat_w_mod = np.array(w_mod)
-    return(mat_w_mod)
+                mat[i,j] = rd.choices(possible_vals, weights)[0]
+
+    for i in range(matrix_size):
+        for j in range(matrix_size):
+            if mat[i,j] == -2:
+                mat[i,j] = -1-d
+                mat[j,i] = -1-d
+            if mat[i,j] == 2:
+                mat[i,j] = -1+e
+                mat[j,i] = -1+e
+            if mat[i,j] == -1:
+                mat[i,j] = -1-d
+            if mat[i,j] == 1:
+                mat[i,j] = -1+e
+
+    print(mat)
+    return(mat)
 
 # checking fixed points
 
@@ -53,7 +55,7 @@ def check_fp(weight_matrix, fixed_point, theta, theta_sig):
     checker = []
     for i in range(matrix_size):
         Wx = weight_matrix[i,:]@fixed_point + theta[i]
-        print(Wx)
+        # print(Wx)
         if theta_sig[i] > 0:
             if Wx > 0:
                 checker.append(1)
@@ -68,11 +70,11 @@ def check_fp(weight_matrix, fixed_point, theta, theta_sig):
 
 #input weight matrix
 matrix_size = int(input('matrix size?\n'))
-W = weight_matrix(matrix_size, matrix_size)
+W = weight_matrix(matrix_size)
 #input powerset
 ps = powerset(matrix_size)
 # print(f'The relevant values of sigma are {ps}')
-print(W)
+# print(W)
 
 # dictionary for fp supports
 
@@ -85,7 +87,7 @@ for sigma in ps: # index of entry in power set
     W = np.copy(A) # weight matrix
     theta = np.ones((matrix_size, 1)) # theta
     t_s = np.copy(theta) # theta_sigma
-    print(ps.index(sigma))
+    # print(ps.index(sigma))
     deac_neur = ps[ps.index(sigma)] #deactivated neurons
     if sigma:
         for iter in deac_neur:
@@ -93,13 +95,13 @@ for sigma in ps: # index of entry in power set
             inverse = np.linalg.inv(np.identity(matrix_size) - W)   
             t_s[iter-1, :] = 0
             P = np.matmul(inverse, t_s)
-        print(P)
+        # print(P)
         checker = check_fp(A, P, theta, t_s)
 
     else:
         inverse = np.linalg.inv(np.identity(matrix_size) - W)
         P = np.matmul(inverse, t_s)
-        print(P)
+        # print(P)
         checker = check_fp(A, P, theta, t_s)
 
     if np.all(checker) == True:
