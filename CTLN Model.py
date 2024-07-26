@@ -120,17 +120,19 @@ def sys(t, x):
     dxdt = (-x + np.maximum(0, A@x + 1))
     return dxdt
 
-x0 = np.random.rand(matrix_size, 1)
-time = [0, 100]
+for i in range(10):
+    x0 = np.random.randint(6, size = (matrix_size, 1))
+    time = [0, 100]
 
-x = scp.integrate.solve_ivp(sys, time, x0.flatten(), dense_output=True)
-t = np.linspace(0,25, 101)
+    x = scp.integrate.solve_ivp(sys, time, x0.flatten(), dense_output=True)
+    t = np.linspace(0,25, 101)
 
-plot1 = plt.plot(t, (x.sol(t)).T)
-plt.show()
-plt.xlim([0,6])
-plt.ylim([0,6])
-plot2 = plt.plot(x.sol(t)[0], x.sol(t)[1])
+    # plot1 = plt.plot(t, (x.sol(t)).T)
+
+    plt.xlim([0,6])
+    plt.ylim([0,6])
+    plot2 = plt.plot(x.sol(t)[0], x.sol(t)[1])
+    i=i+1
 plt.show()
 
 print(pd.DataFrame.from_dict(supports, orient='index'))
