@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2024.7.15)  14 AUG 2024 09:13
+This is LuaHBTeX, Version 1.18.1 (MiKTeX 24.4) (format=lualatex 2024.10.21)  23 OCT 2024 11:59
  restricted system commands enabled.
 **"C:/Users/avalon/Documents/Neuroscience Research/Summary/main.tex"
 ("C:/Users/avalon/Documents/Neuroscience Research/Summary/main.tex"
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
@@ -84,7 +84,7 @@ File: luatex.def 2024/04/13 v1.2e Graphics/color driver for luatex
 \Gin@req@height=\dimen141
 \Gin@req@width=\dimen142
 ) (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty
-Package: babel 2024/06/02 v24.6 The Babel package
+Package: babel 2024/10/05 v24.11 The Babel package
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/generic/babel/luababel.def
 \bbl@readstream=\read2
 \l@afrikaans=\language2
@@ -427,7 +427,7 @@ ysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -436,15 +436,15 @@ Package xcolor Info: Driver file: luatex.def on input line 274.
 
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/graphics/mathcolor.ltx
 )
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/generic/pgf/basiclayer/pgfco
 re.code.tex
@@ -632,8 +632,8 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@roff=\dimen269
 ))
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
-
+Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and foote
+rs
 \f@nch@headwidth=\skip54
 \f@nch@O@elh=\skip55
 \f@nch@O@erh=\skip56
@@ -645,7 +645,7 @@ Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
 \f@nch@O@orf=\skip62
 ) (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hyperref.st
 y
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.st
 y
@@ -709,14 +709,14 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 \Hy@pagecounter=\count300
 
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 )
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count301
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Hyper figures OFF on input line 4157.
 Package hyperref Info: Link nesting OFF on input line 4162.
@@ -763,7 +763,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hluatex.
  (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
+File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
 
 (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
@@ -828,7 +828,14 @@ File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count311
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box64
-) (./main.aux)
+) (./main.aux
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:@cref' multiply defined.
+
+)
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
@@ -842,8 +849,7 @@ LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
 4.
-
-(C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
+ (C:/Users/avalon/AppData/Local/Programs/MiKTeX/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 54.
@@ -923,54 +929,42 @@ Package hyperref Info: Link coloring OFF on input line 54.
 
 \openout4 = main.out
 
-! Missing delimiter (. inserted).
-<to be read again> 
-\right 
-l.62 ...ph structure and connectivity $\left  \right
-                                                  $
-I was expecting to see something like `(' or `\{' or
-`\}' here. If you typed, e.g., `{' instead of `\{', you
-should probably delete the `{' by typing `1' now, so that
-braces don't get unbalanced. Otherwise just proceed
-Acceptable delimiters are characters whose \delcode is
-nonnegative, or you can use `\delimiter <delimiter code>'.
-
-! Missing delimiter (. inserted).
-<to be read again> 
-$
-l.62 ...h structure and connectivity $\left  \right$
-                                                  
-I was expecting to see something like `(' or `\{' or
-`\}' here. If you typed, e.g., `{' instead of `\{', you
-should probably delete the `{' by typing `1' now, so that
-braces don't get unbalanced. Otherwise just proceed
-Acceptable delimiters are characters whose \delcode is
-nonnegative, or you can use `\delimiter <delimiter code>'.
-
-
 
 [1
 
 {C:/Users/avalon/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-(./main.aux)
+<Matrix Size 100 0.png, id=60, 289.08pt x 289.08pt>
+File: Matrix Size 100 0.png Graphic file (type png)
+<use Matrix Size 100 0.png>
+Package luatex.def Info: Matrix Size 100 0.png  used on input line 85.
+(luatex.def)             Requested size: 216.81pt x 216.80946pt.
+
+
+[2<./Matrix Size 100 0.png>]
+
+[3] (./main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-05-27>
+L3 programming layer <2024-09-10>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AE3D85CFFE0AD1F4F8BCE6272D95582F;354.
+(rerunfilecheck)             Checksum: 65BEC08D7B9769C396DD82030EF20831;845.
 )
 
 Here is how much of LuaTeX's memory you used:
- 22614 strings out of 475915
- 100000,1977958 words of node,token memory allocated
- 525 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 13 attribute, 56 glue_spec
+ 22666 strings out of 475910
+ 100000,1144653 words of node,token memory allocated
+ 534 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 13 attribute, 56 glue_spec
 , 8 attribute_list, 2 write nodes
-   avail lists: 1:1,2:422,3:203,4:27,5:483,6:36,7:9421,8:29,9:291,10:11,11:792
- 44686 multiletter control sequences out of 65536+600000
- 64 fonts using 4254863 bytes
- 105i,6n,105p,899b,354s stack positions out of 10000i,1000n,20000p,200000b,200000s
+   avail lists: 1:1,2:679,3:214,4:28,5:487,6:38,7:9885,8:29,9:356,10:12,11:856
+ 44726 multiletter control sequences out of 65536+600000
+ 68 fonts using 4781615 bytes
+ 105i,11n,105p,862b,358s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/avalon/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman1
 0-italic.otf><c:/users/avalon/appdata/local/programs/miktex/fonts/opentype/publi
 c/lm/lmroman10-bold.otf><//?/c:/users/avalon/appdata/local/programs/miktex/fonts
@@ -985,9 +979,9 @@ lic/amsfonts/cm/cmr10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmr7.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/avalon/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (1 page, 80555 bytes).
+Output written on main.pdf (3 pages, 220542 bytes).
 
-PDF statistics: 98 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 131072)
- 48 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 136 PDF objects out of 1000 (max. 8388607)
+ 22 named destinations out of 1000 (max. 131072)
+ 88 words of extra memory for PDF output out of 10000 (max. 100000000)
 
