@@ -1,0 +1,39 @@
+%!TEX root = ./document.tex
+
+\section{Preliminaries}
+The dynamics of threshold-linear networks are governed by the following ODE:
+\[
+    \frac{dx_i}{dt} = -x_i + \left[ \sum^{n}_{j=1} W_{ij} x_j + \theta \right]_+ \mbox{, i = 1, 2,\dots, n},
+\]
+where $n$ is the number of neurons. $x_i$ represents the firing rate of the $i$-th neuron and $\theta>0$ is a constant external input. $W_{ij}$ is an $n\times n$ matrix that describes the connective strength between neurons $i,j$. The threshold non-linearity as described by $[\cdot]_+ := \max\{0,\cdot\}$ produces nonlinear dynamics within the network. CTLNs are a special case of the TLN model where we restrict connection strengths in $W_{ij}$. The dynamics exhibited can coalesce to one of two steady states, either a fixed point or a chaotic attractor.
+
+Before continuing, we introduce a few important definitions.
+\begin{defn}[Directed Graph]
+    A graph where every edge has a direction. A graph where all edges are bidirectional is called an \textit{undirected} graph.
+\end{defn}
+
+\begin{defn}[Clique]
+    A set of vertices of size $k$, $\sigma_k$, such that they are all connected with bidirectional edges.
+\end{defn}
+
+\begin{defn}[Target of a Clique]
+    A vertex that receives an edge from every vertex in $\sigma_k$.
+\end{defn}
+
+\begin{defn}[Maximality]
+    A clique is maximal if it has no targets.
+\end{defn}
+
+\begin{defn}[Fixed Point Support]
+    A set of vertices with no targets, that is, a maximal clique.
+\end{defn}
+
+\begin{defn}[Symmetry]
+    Let $v_i,v_j$ be any two vertices with an edge between them in a directed graph. $i$ and $j$ are considered \textit{symmetric} if there exists a bidirectional edge between them. A graph is considered fully symmetric if every edge in the graph is a bidirectional edge; or if there exist no edges in the graph.
+\end{defn}
+
+In order to analyze this as a stochastic system, we must be able to parametrize characteristics of the CTLN that affect the dynamics manifested. The easiest and most intuitive way to do this is to parametrize edge connection probability as well as the symmetry of the graph. That is, we assign values to how ``bidirectional'' our network is. A completely symmetric network would be an undirected graph, while a completely asymmetric graph would only contain unidirectional edges. We then generate random graphs with these parameters and attempt to discern the average dynamics of a size $n$ system with specific combinations of edge connection probability and symmetry.
+
+To that end, we have 4 cases for possible edge generation: no edge, a forward edge from $v_i\to v_j$, a backward edge from $v_j\to v_i$, and a bidirectional edge. We assign the values $\left\{1-p, p \left( \frac{1-q}{2}  \right), p \left( \frac{1-q}{2}  \right), pq \right\}$ respectively. $p$ serves as our edge connection parameter, and $q$ serves as our symmetry parameter. It is important to note here that edge generation is independent. (justify)
+
+A program was written in Python that simulates graph generation and numerically simulates dynamics of those graphs generated. Random initial conditions are used. In order to detect whether a specific network coalesces to a fixed point or not, we explicitly calculate the numerical derivative for the last few timesteps of our solution and check to see if it falls within an acceptable threshold. We use this algorithm to simulate dynamics for the full spectrum of edge connection probabilities and symmetry parametrizations. 

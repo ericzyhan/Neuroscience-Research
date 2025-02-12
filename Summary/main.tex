@@ -11,6 +11,7 @@
 \usepackage{fancyhdr} % Fancy headers
 \usepackage{hyperref}
 \usepackage{amsthm}
+\usepackage{amsfonts}
 \usepackage{cleveref}
 \usepackage{bm}
 \usepackage{wrapfig} % Text flowing around figures
@@ -137,5 +138,10 @@ A clique $\sigma$ is the support of a fixed point if and only if it is target fr
 \end{proof}
 % definitions of clique, tf-clique, maximal clique, requirements for fp support 
 
+
+
+\[
+    \mathbb{P}(\sigma_k|\sigma_k\mbox{ maximal}) = \left[1-\left(q\left(\frac{1-p}{2}\right) +pq\right)^k\right]^{N-k} \left[\binom{N}{k}\left(p\left(\frac{1-q}{2}\right)+pq\right)^{\binom{k}{2}}\right]
+\]
 
 \end{document}
