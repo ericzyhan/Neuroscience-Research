@@ -1,7 +1,7 @@
 %!TEX root = ./document.tex
 
-\section{Initial Results}
-\label{sec:Initial Results}
+\section{Results}
+\label{sec:Results}
 
 We have generated heatmaps of averaged network dynamics that showcase general patterns for size-$n$ networks across the full spectrum of edge connection probabilities and degrees of symmetry. Utilizing these heatmaps, we can see a distinct zone of phase transition where the dynamics go from coalescing to a fixed point to exhibiting strongly chaotic behavior.\sidenote{It should be noted that chaotic behavior persists for longer for larger $n$ graphs.}
 
@@ -70,4 +70,24 @@ To generate dynamics for individual graphs, we used a standard iterative method 
      \label{fig:1}
 \end{figure}
 
-Accurate simulation of network dynamics means that we may average the behavior of randomly-generated networks across the entire spectrum of symmetry-edge connection values. To do this, we simply simulate the dynamics of networks with specific parameters multiple times in order to generate heatmaps that indicate how likely a specific pair of parameters is to result in a fixed point. We detect fixed points by numerically computing the derivatives at the final few\sidenote{I forgot how many} points in time.
+Accurate simulation of network dynamics means that we may average the behavior of randomly-generated networks across the entire spectrum of symmetry-edge connection values. To do this, we simply simulate the dynamics of networks with specific parameters multiple times in order to generate heatmaps that indicate how likely a specific pair of parameters is to result in a fixed point. We detect fixed points by numerically computing the derivatives at the final point in time.
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}{0.45\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{./Figures/size 30 heatmap.png}
+         \label{fig:1a}
+     \end{subfigure}
+     \begin{subfigure}{0.45\textwidth}
+         \centering
+         \includegraphics[width=\linewidth]{./Figures/size 100 heatmap.png}
+         \label{fig:1b}
+     \end{subfigure}
+     \caption{Averaged heatmaps for a 30-network and a 100-network. Heatmaps were averaged over 7 trials. Red regions are more likely to coalesce to a limit cycles and blue regions are more likely to coalesce to a fixed point. One can clearly see a distinct zone of phase transition where firing rate trajectories ``shift'' to the other steady state. As network size grows, the phase transition becomes more prominent and pairs of parameters become more ``patterned''.}
+     \label{fig:1}
+\end{figure}
+
+\section{Methods and Proofs}
+\label{sec:Methods and Proofs}
+
