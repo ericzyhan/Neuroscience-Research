@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.21)  12 FEB 2025 10:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.21)  25 FEB 2025 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -546,28 +546,35 @@ y
 Package: thm-amsthm 2023/05/04 v0.76
 \thmt@style@headstyle=\toks38
 ))
-\c@thm=\count314
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count314
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count315
+)
+\c@thm=\count316
  (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -607,16 +614,16 @@ LaTeX Font Info:    ... okay on input line 61.
 (C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
 kii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count315
+\scratchcounter=\count317
 \scratchdimen=\dimen183
 \scratchbox=\box62
-\nofMPsegments=\count316
-\nofMParguments=\count317
+\nofMPsegments=\count318
+\nofMParguments=\count319
 \everyMPshowfont=\toks39
-\MPscratchCnt=\count318
+\MPscratchCnt=\count320
 \MPscratchDim=\dimen184
-\MPnumerator=\count319
-\makeMPintoPDFobject=\count320
+\MPnumerator=\count321
+\makeMPintoPDFobject=\count322
 \everyMPtoPDFconversion=\toks40
 )
 (C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
@@ -636,12 +643,52 @@ Package caption Info: changepage package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \@sidenotes@extrawidth=\skip89
-Package hyperref Info: Link coloring ON on input line 61.
+Package hyperref Info: Link coloring ON on input line 63.
  (document.out) (document.out)
 \@outlinefile=\write3
 \openout3 = `document.out'.
 
- (document.toc)
+ (document.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+3.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+3.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write4
 \openout4 = `document.toc'.
 
@@ -684,46 +731,6 @@ lon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
  (prelim.tex
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
-.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
-.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-5.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-5.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 5.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 5.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 5.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
-
-(C:\Users\avalon\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Package hyperref Info: bookmark level for unknown defn defaults to 0 on input l
 ine 11.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
@@ -751,39 +758,62 @@ C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
 e 3.
+
+
+[2]
+<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png, id=75, 433.62pt x 433.
+62pt>
+File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png Graphic file (type
+ png)
+<use ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png>
+Package pdftex.def Info: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png
+  used on input line 61.
+(pdftex.def)             Requested size: 148.39435pt x 148.39485pt.
+<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png, id=77, 433.62pt x 433.
+62pt>
+File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png Graphic file (type
+ png)
+<use ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png>
+Package pdftex.def Info: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png
+  used on input line 66.
+(pdftex.def)             Requested size: 148.39435pt x 148.39485pt.
 )
 
-[2] (document.aux)
+[3 <./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png> <./Figures/Matrix S
+ize 10 Symmetry 0.100 0.6 0.1 13.png>] (document.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 2970D4902BA38A6D54256E0948D4F34D;229.
+(rerunfilecheck)             Checksum: 0EDDB94576E1833FDDC2DC6165C8755E;654.
  ) 
 Here is how much of TeX's memory you used:
- 15162 strings out of 473536
- 245122 string characters out of 5714472
- 660211 words of memory out of 5000000
- 38121 multiletter control sequences out of 15000+600000
- 593315 words of font info for 60 fonts, out of 8000000 for 9000
+ 15334 strings out of 473536
+ 248915 string characters out of 5714472
+ 666883 words of memory out of 5000000
+ 38276 multiletter control sequences out of 15000+600000
+ 598867 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,7n,107p,930b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,11n,107p,930b,485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.p
 fb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.
+pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.
 pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.
 pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.
-pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.p
-fb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.
-pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss8.
-pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx
-10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lms
-so10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
-msy10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
-lmsy7.pfb>
-Output written on document.pdf (3 pages, 171549 bytes).
+pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.p
+fb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pf
+b><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.p
+fb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss8.p
+fb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx1
+0.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss
+o10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
+sy10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+msy7.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on document.pdf (4 pages, 1661953 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 158 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
