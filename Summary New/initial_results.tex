@@ -14,7 +14,7 @@ Additionally, we have also identified that for networks of increasing size $n$, 
 The main approach utilized requires that we can identify the expected number of maximal cliques for any set of parameters $p$ and $q$. The expected number of maximal cliques is given by
 \begin{align}
     \label{eq:e of max}
-    \E_u[\mbox{maximal } \sigma_k] = \binom{N}{k}p^{\binom{k}{2}}
+    \E_u[\sigma_k] = \binom{N}{k}p^{\binom{k}{2}}
 \end{align}
 where $p$ is the probability of an edge between any two vertices in the network.\sidenote{I believe this might need some refinement.}
 Additionally, the probability that a clique is maximal is given by
@@ -33,7 +33,7 @@ First, we consider the expected number of maximal cliques. Instead of looking fo
 the probability that a bidirectional edge is generated, $pq$. So, the expected number of maximal cliques is given by
 \begin{align}
     \label{eq:e of max directed}
-    \E_d(\mbox{maximal } \sigma_k) = \binom{N}{k}pq^{\binom{k}{2}}.
+    \E_d[\sigma_k] = \binom{N}{k}pq^{\binom{k}{2}}.
 \end{align}
 Similarly, in order to find the probability that any $k$-clique is maximal, recall that we are essentially finding the complement of the probability that it is \textit{not} maximal. That is, we require the probability that the clique has any targets. Thus, we identify the probability of there existing a feed-forward edge to a vertex outside of the clique, $p \left(\frac{1-q}{2} \right)$ and $pq$. So,
 \begin{align}
@@ -42,7 +42,7 @@ Similarly, in order to find the probability that any $k$-clique is maximal, reca
 \end{align} 
 Moving forward, unless otherwise specified, we will always refer to the probabilities described for directed graphs.
 
-The expected number of maximal cliques for an $N$-size network is given by the expected number of maximal cliques multiplied by the probability that any given clique is maximal given that it exists.
+The expected number of maximal cliques for an $N$-size network is given by the expected number of $k$-sized cliques multiplied by the probability that any given clique is maximal given that it exists.
 \begin{gather}
     \label{eq:expected max directed}
     \E_d \cdot \PP_d = \binom{N}{k}pq^{\binom{k}{2}} \left[ 1- \left(pq + p   \left(\frac{1-q}{2} \right) \right)^k \right]^{N-k}.

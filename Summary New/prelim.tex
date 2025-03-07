@@ -5,7 +5,7 @@ The dynamics of threshold-linear networks are governed by the following ODE:
 \[
     \frac{dx_i}{dt} = -x_i + \left[ \sum^{n}_{j=1} W_{ij} x_j + \theta \right]_+ \mbox{, i = 1, 2,\dots, n},
 \]
-where $n$ is the number of neurons. $x_i$ represents the firing rate of the $i$-th neuron and $\theta>0$ is a constant external input. $W_{ij}$ is an $n\times n$ matrix that describes the connective strength between neurons $i,j$. The threshold non-linearity as described by $[\cdot]_+ := \max\{0,\cdot\}$ produces nonlinear dynamics within the network. CTLNs are a special case of the TLN model where we restrict connection strengths in $W_{ij}$. The dynamics exhibited can coalesce to one of two steady states\sidenote{is this guaranteed? proof where?}, either a fixed point or a chaotic attractor.
+where $n$ is the number of neurons. $x_i$ represents the firing rate of the $i$-th neuron and $\theta>0$ is a constant external input. $W_{ij}$ is an $n\times n$ matrix that describes the connective strength between neurons $i,j$. The threshold non-linearity as described by $[\cdot]_+ := \max\{0,\cdot\}$ produces nonlinear dynamics within the network. CTLNs are a special case of the TLN model where we restrict connection strengths in $W_{ij}$. The network exhibits a variety of complex dynamical regimes, including multistable behavior, and can also possess limit cycles and multiple chaotic attractors.
 
 Before continuing, we introduce a few important definitions.
 \begin{defn}[Directed Graph]
