@@ -1,5 +1,5 @@
 function nonlog = g(a, p, q, N)
-    k = log(N);
+    k = a*N;
     
     nonlog = (N^(1/2 + N) * (k)^(-(1/2) - a*N) * (N - k)^(-(1/2) - N + k) * ...
     (1/2 * p * (1 - q) + p * q)^(1/2 * k * (-1 + k)) * ...
@@ -7,7 +7,7 @@ function nonlog = g(a, p, q, N)
 end
 
 % Define parameters a and N
-a = 0.2;  % Example value for a
+a = 0.04;  % Example value for a
 N = 100;   % Example value for N
 
 % Define the range for p and q (e.g., 0 to 1 with 100 points)

@@ -3,4 +3,4 @@
 \contentsline {subsection}{\numberline {2.1}Undirected Graphs}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Directed Graphs}{2}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Numerical Results}{3}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Methods and Proofs}{4}{section.3}%
+\contentsline {section}{\numberline {3}Methods and Proofs}{3}{section.3}%

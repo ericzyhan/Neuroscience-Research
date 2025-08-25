@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.21)  5 MAR 2025 17:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.1.21)  25 MAR 2025 10:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -764,8 +764,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.3 \section{Results}
-                      [1
+l.2 
+     [1
 
 {C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc
 }{C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
@@ -773,11 +773,11 @@ l.3 \section{Results}
 C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}
 ]
 Package marginnote Info: Using workaround for absolute page number on input lin
-e 3.
+e 2.
 
 
 [2]
-<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png, id=80, 433.62pt x 433.
+<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png, id=78, 433.62pt x 433.
 62pt>
 File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png Graphic file (type
  png)
@@ -785,7 +785,7 @@ File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png Graphic file (type
 Package pdftex.def Info: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png
   used on input line 61.
 (pdftex.def)             Requested size: 148.39435pt x 148.39485pt.
-<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png, id=82, 433.62pt x 433.
+<./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png, id=80, 433.62pt x 433.
 62pt>
 File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png Graphic file (type
  png)
@@ -793,24 +793,28 @@ File: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png Graphic file (type
 Package pdftex.def Info: ./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 13.png
   used on input line 66.
 (pdftex.def)             Requested size: 148.39435pt x 148.39485pt.
-<./Figures/size 30 heatmap.png, id=83, 378.41376pt x 347.2975pt>
+<./Figures/size 30 heatmap.png, id=81, 378.41376pt x 347.2975pt>
 File: ./Figures/size 30 heatmap.png Graphic file (type png)
 <use ./Figures/size 30 heatmap.png>
 Package pdftex.def Info: ./Figures/size 30 heatmap.png  used on input line 79.
 (pdftex.def)             Requested size: 148.39435pt x 136.19267pt.
-<./Figures/size 100 heatmap.png, id=84, 378.41376pt x 347.2975pt>
+<./Figures/size 100 heatmap.png, id=82, 378.41376pt x 347.2975pt>
 File: ./Figures/size 100 heatmap.png Graphic file (type png)
 <use ./Figures/size 100 heatmap.png>
 Package pdftex.def Info: ./Figures/size 100 heatmap.png  used on input line 84.
 
 (pdftex.def)             Requested size: 148.39435pt x 136.19267pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 )
 
 [3 <./Figures/Matrix Size 10 Symmetry 0.100 0.6 0.1 12.png> <./Figures/Matrix S
-ize 10 Symmetry 0.100 0.6 0.1 13.png> <./Figures/size 30 heatmap.png (PNG copy)
-> <./Figures/size 100 heatmap.png (PNG copy)>]
+ize 10 Symmetry 0.100 0.6 0.1 13.png>]
 
-[4] (document.aux)
+[4 <./Figures/size 30 heatmap.png (PNG copy)> <./Figures/size 100 heatmap.png (
+PNG copy)>] (document.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
@@ -823,9 +827,9 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: B3488DE3495507A010779F685A0F2C4B;750.
  ) 
 Here is how much of TeX's memory you used:
- 15352 strings out of 473536
- 249472 string characters out of 5714472
- 667114 words of memory out of 5000000
+ 15351 strings out of 473536
+ 249462 string characters out of 5714472
+ 666114 words of memory out of 5000000
  38292 multiletter control sequences out of 15000+600000
  598867 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -845,9 +849,9 @@ o10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
 sy10.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
 msy7.pfb><C:/Users/avalon/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on document.pdf (5 pages, 1698784 bytes).
+Output written on document.pdf (5 pages, 1698792 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

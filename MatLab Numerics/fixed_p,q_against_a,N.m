@@ -23,8 +23,8 @@ p = 1;
 q = 0.9;
 
 % Create the meshgrid for a and N
-a_vals = linspace(0, 1, 100);  % a values from 0 to 1
-N_vals = 2:1000;  % N values from 2 to 100
+a_vals = linspace(0, 1, 10);  % a values from 0 to 1
+N_vals = 2:60;  % N values from 2 to 100
 
 [A, N] = meshgrid(a_vals, N_vals);
 Z = arrayfun(@(a, n) f(a, p, q, n), A, N);  % Compute f(a, p, q, N) for each grid point
