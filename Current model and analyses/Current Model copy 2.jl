@@ -1,0 +1,251 @@
+using DifferentialEquations
+using LinearAlgebra
+using Random
+using Statistics
+using Plots
+using Printf
+using Dates
+
+default(
+    titlefont = (7, "helvetica"), 
+    legendfontsize = 3, 
+    guidefont = font(3), 
+    xtickfont = font(pointsize = 3, family = "helvetica"), 
+    ytickfont = font(pointsize = 3, family = "helvetica"), 
+    guide = "x", 
+    grid = false, 
+    fontfamily = "helvetica"
+)
+
+# OPTIMIZED ODE SYSTEM
+function system_ode!(dx, x, W, t)
+    mul!(dx, W, x) 
+    @inbounds @simd for i in eachindex(dx)
+        dx[i] = -x[i] + max(0.0, dx[i] + 1.0)
+    end
+end
+
+# OPTIMIZED WEIGHT MATRIX GENERATOR
+function generate_weight_matrix!(W::Matrix{Float64}, p::Float64, q::Float64, E_PARAM::Float64, D_PARAM::Float64)
+    w_excited = -1.0 + E_PARAM
+    w_inhibited = -1.0 - D_PARAM
+    
+    p1 = 1.0 - p
+    p2 = p1 + p * (1.0 - q) / 2.0
+    p3 = p2 + p * (1.0 - q) / 2.0
+    
+    n = size(W, 1)
+    fill!(W, 0.0)
+    
+    @inbounds for j in 1:n
+        for i in 1:(j-1)
+            r = rand()
+            if r <= p1
+                W[i, j] = w_inhibited
+                W[j, i] = w_inhibited
+            elseif r <= p2
+                W[i, j] = w_inhibited
+                W[j, i] = w_excited
+            elseif r <= p3
+                W[i, j] = w_excited
+                W[j, i] = w_inhibited
+            else
+                W[i, j] = w_excited
+                W[j, i] = w_excited
+            end
+        end
+    end
+    return W
+end
+
+# MAIN EXECUTION SCRIPT
+
+function main()
+    # Parameters
+    E_PARAM = 0.25
+    D_PARAM = 0.5
+    MATRIX_SIZE = 10
+    P_VALS = collect(range(0.0, 1.0, length=11))
+    Q_VALS = collect(range(0.0, 1.0, length=11))
+    NUM_TRIALS = 100
+    
+    TIME_SPAN = (0.0, 600.0)
+    CONVERGENCE_TOL = 0.01
+    ACTIVE_THRESHOLD = 1e-5
+    DERIV_ERROR_THRESHOLD = 0.01
+
+    num_p = length(P_VALS)
+    num_q = length(Q_VALS)
+
+    # mem fix
+    save_times = vcat([0.0], collect(range(585.0, 600.0, length=15)))
+
+    # storage arrays for final statistics
+    convergence_heatmap = zeros(num_q, num_p)
+    
+    active_mean_heatmap = zeros(num_q, num_p)
+    active_std_heatmap  = zeros(num_q, num_p)
+    active_min_heatmap  = zeros(num_q, num_p)
+    active_max_heatmap  = zeros(num_q, num_p)
+    
+    fp_mean_heatmap = fill(NaN, num_q, num_p)
+    nl_mean_heatmap = fill(NaN, num_q, num_p)
+
+    # dictionary to hold lightweight numerical data for the trajectory plot
+    sample_trajectories = Dict{Tuple{Int, Int}, Tuple{Vector{Float64}, Matrix{Float64}}}()
+
+    # Folder setup
+    timestamp = Dates.format(now(), "yyyymmdd_HHMMSS")
+    run_folder = "analysis_run_$(timestamp)_N$(MATRIX_SIZE)"
+    mkpath(run_folder)
+    
+    println("Created analysis folder: ", run_folder)
+    println("Starting simulation & on-the-fly analysis...")
+
+    # Pre-allocate matrices to reuse memory during the loop
+    W = zeros(Float64, MATRIX_SIZE, MATRIX_SIZE)
+    x0 = zeros(Float64, MATRIX_SIZE)
+    prob_base = ODEProblem(system_ode!, x0, TIME_SPAN, W)
+    
+    for (p_idx, p) in enumerate(P_VALS)
+        for (q_idx, q) in enumerate(Q_VALS)
+            
+            trial_convergence = zeros(Int, NUM_TRIALS)
+            trial_active_counts = zeros(Int, NUM_TRIALS)
+            trial_fp_counts = Float64[]
+            trial_nl_counts = Float64[]
+
+            for trial in 1:NUM_TRIALS
+                generate_weight_matrix!(W, p, q, E_PARAM, D_PARAM)
+                rand!(x0) 
+                
+                W_copy = copy(W)
+                prob = remake(prob_base, u0=copy(x0), p=W_copy)
+                
+                # Use a high-order stiff solver with tightened tolerances to prevent artificial damping of chaos
+                sol = solve(prob, AutoTsit5(Rosenbrock23()), saveat=save_times)
+                final_state = sol.u[end]
+                
+                if length(sol.u) > 1
+                    recent_traj = reduce(hcat, sol.u[2:end]) 
+                    
+                    # CONVERGENCE CHECK
+                    max_diff = 0.0
+                    for step in 2:length(sol.u)
+                        diff = maximum(abs.(final_state .- sol.u[step]))
+                        max_diff = max(max_diff, diff)
+                    end
+                    trial_convergence[trial] = max_diff <= CONVERGENCE_TOL ? 1 : 0
+                    
+                    # ACTIVE NEURON CHECK
+                    active_mask = final_state .> ACTIVE_THRESHOLD
+                    trial_active_counts[trial] = sum(active_mask)
+                    
+                    # 3. REGIME CLASSIFICATION
+                    dx = -recent_traj .+ max.(0.0, W_copy * recent_traj .+ 1.0)
+                    
+                    max_dx = maximum(dx, dims=2) |> vec
+                    min_dx = minimum(dx, dims=2) |> vec
+                    diff_dx = abs.(max_dx .- min_dx)
+                    
+                    fp_mask = diff_dx .< DERIV_ERROR_THRESHOLD
+                    nl_mask = .~fp_mask
+                    
+                    active_fp_count = sum(active_mask .& fp_mask)
+                    active_nl_count = sum(active_mask .& nl_mask)
+                    
+                    if active_nl_count > 0
+                        push!(trial_nl_counts, active_nl_count)
+                    elseif active_fp_count > 0
+                        push!(trial_fp_counts, active_fp_count)
+                    end
+                end
+                
+                if trial == 1
+                    sample_trajectories[(p_idx, q_idx)] = (sol.t, reduce(hcat, sol.u)')
+                end
+            end
+            
+            # trial stats
+            mean_conv = mean(trial_convergence)
+            convergence_heatmap[q_idx, p_idx] = mean_conv
+            
+            active_mean_heatmap[q_idx, p_idx] = mean(trial_active_counts)
+            active_std_heatmap[q_idx, p_idx]  = std(trial_active_counts)
+            active_min_heatmap[q_idx, p_idx]  = minimum(trial_active_counts)
+            active_max_heatmap[q_idx, p_idx]  = maximum(trial_active_counts)
+            
+            if !isempty(trial_fp_counts)
+                fp_mean_heatmap[q_idx, p_idx] = mean(trial_fp_counts)
+            end
+            if !isempty(trial_nl_counts)
+                nl_mean_heatmap[q_idx, p_idx] = mean(trial_nl_counts)
+            end
+            
+            @printf("p=%.1f, q=%.1f | Conv: %.2f | Act: %.1f | FP: %s | NL: %s\n", 
+                    p, q, mean_conv, mean(trial_active_counts), 
+                    isempty(trial_fp_counts) ? "NaN" : @sprintf("%.1f", mean(trial_fp_counts)),
+                    isempty(trial_nl_counts) ? "NaN" : @sprintf("%.1f", mean(trial_nl_counts)))
+        end
+    end
+    println("\nSimulation complete. Generating figures...\n")
+    
+    # plots
+    
+    # ordered plots
+    ordered_plots = Any[]
+    for q_idx in num_q:-1:1
+        for p_idx in 1:num_p
+            t_data, y_data = sample_trajectories[(p_idx, q_idx)]
+            p_traj = plot(t_data, y_data, legend=false, title="p=$(P_VALS[p_idx]), q=$(Q_VALS[q_idx])", 
+                          titlefontsize=6, tickfontsize=4, lw=0.5, grid=false)
+            push!(ordered_plots, p_traj)
+        end
+    end
+    fig_trajectories = plot(ordered_plots..., layout=(num_q, num_p), size=(1500, 1500), 
+                            plot_title="System Trajectories for Matrix Size $(MATRIX_SIZE)")
+    savefig(fig_trajectories, joinpath(run_folder, "system_trajectories.png"))
+    
+    # convergence Heatmap
+    q_curve = range(0.0, 1.0, length=100)
+    p_curve = (4.0 .* q_curve) ./ ((1.0 .+ q_curve).^2)
+
+    fig_conv = heatmap(P_VALS, Q_VALS, convergence_heatmap, c=:RdYlBu, clims=(0,1),
+                       xlabel="p (interaction prob)", ylabel="q (excitatory prob)",
+                       title="Convergence Heatmap (N=$(MATRIX_SIZE))", size=(800, 700))
+    plot!(fig_conv, p_curve, q_curve, color=:white, lw=2.5, ls=:dash, label="p = 4q/(1+q)^2")
+    savefig(fig_conv, joinpath(run_folder, "convergence_heatmap.pdf"))
+
+    # heatmaps with log scaling of legend
+    actual_max = maximum(active_mean_heatmap)
+    # Tightly bound to the actual maximum data, or use log(N) as a baseline if the matrix is completely dead
+    vmax_count = actual_max > 0.0 ? actual_max * 1.05 : max(1.0, 1.5 * log(MATRIX_SIZE))
+    
+    fig_stats_1 = heatmap(P_VALS, Q_VALS, active_mean_heatmap, c=:viridis, clims=(0, vmax_count), title="Mean Active")
+    fig_stats_2 = heatmap(P_VALS, Q_VALS, active_std_heatmap, c=:plasma, clims=(0, vmax_count/3.0), title="Std Dev Active")
+    fig_stats_3 = heatmap(P_VALS, Q_VALS, active_min_heatmap, c=:cividis, clims=(0, vmax_count), title="Min Active")
+    fig_stats_4 = heatmap(P_VALS, Q_VALS, active_max_heatmap, c=:inferno, clims=(0, vmax_count), title="Max Active")
+    
+    fig_active_stats = plot(fig_stats_1, fig_stats_2, fig_stats_3, fig_stats_4, layout=(2,2), size=(1000, 900), 
+                            plot_title="Active Neuron Statistics (N=$(MATRIX_SIZE))")
+    savefig(fig_active_stats, joinpath(run_folder, "active_neurons_statistics.pdf"))
+
+    # Classification Heatmaps
+    max_val_regime = maximum(filter(!isnan, vcat(vec(fp_mean_heatmap), vec(nl_mean_heatmap))))
+    
+    fig_fp = heatmap(P_VALS, Q_VALS, fp_mean_heatmap, c=:cividis, clims=(0, max_val_regime), title="Fixed Point Realizations")
+    plot!(fig_fp, p_curve, q_curve, color=:white, lw=2, ls=:dash, label="p = 4q/(1+q)^2")
+    
+    fig_nl = heatmap(P_VALS, Q_VALS, nl_mean_heatmap, c=:plasma, clims=(0, max_val_regime), title="Nonlinear Realizations")
+    plot!(fig_nl, p_curve, q_curve, color=:white, lw=2, ls=:dash, label="p = 4q/(1+q)^2")
+    
+    fig_regimes = plot(fig_fp, fig_nl, layout=(1,2), size=(1200, 500), 
+                       plot_title="Active Neurons by Dynamical Regime (N=$(MATRIX_SIZE))")
+    savefig(fig_regimes, joinpath(run_folder, "dynamical_regimes_heatmap.pdf"))
+    
+    println("\nFigures saved to: $(run_folder)/")
+    println("="^70)
+end
+
+# Execute Program
+main()
